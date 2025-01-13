@@ -1,0 +1,17 @@
+public class Threads {
+    public static void main(String[] args) {
+        Thread t1 = new Thread(() -> {
+            for (int i = 0; i < 10; i++) System.out.println((int) (Math.random() * 100));
+        });
+
+        Thread t2 = new Thread(() -> {
+            for (int i = 0; i < 10; i++) System.out.println(2 * (int) (Math.random() * 50));
+        });
+
+        t1.setPriority(Thread.MIN_PRIORITY);
+        t2.setPriority(Thread.MAX_PRIORITY);
+
+        t1.start();
+        t2.start();
+    }
+}
